@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  locales: ['en', 'uk'],
+  defaultLocale: 'en',
+  production: false,
+  apiUrl: 'http://localhost:8080/api/',
+  socketUrl: 'http://localhost:8080/ws'
 };
 
 /*
