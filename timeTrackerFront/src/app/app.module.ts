@@ -7,6 +7,9 @@ import { AuthorizationComponent } from './modules/authorization/authorization.co
 import { LogInComponent } from './modules/authorization/log-in/log-in.component';
 import { SignUpComponent } from './modules/authorization/sign-up/sign-up.component';
 import {FormsModule} from "@angular/forms";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {JwtInterceptor} from "./modules/core/jwt.intercepter";
+import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
@@ -18,9 +21,11 @@ import {FormsModule} from "@angular/forms";
     imports: [
         BrowserModule,
         AppRoutingModule,
-        FormsModule
+        FormsModule,
+        HttpClientModule
     ],
-  providers: [],
+  entryComponents: [LogInComponent],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}, HttpClientModule, NgbActiveModal],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -21,7 +21,7 @@ export class LogInComponent {
 
 
   logIn() {
-
+    console.log("login works ", this.email, this.password)
     this.authenticationService.loginUser(this.email, this.password).pipe(first())
       .subscribe(
         n => {
