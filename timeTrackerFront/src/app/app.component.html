@@ -1,1 +1,4 @@
-<router-outlet></router-outlet>
+<div class="router-outlet">
+  <div class="float-left" *ngIf="authenticated" ><app-nav-bar class="position-fixed mr-0 h-100"></app-nav-bar></div>
+  <div class="float-left"  style="margin-left: 250px; width: 1500px"><router-outlet ></router-outlet></div>
+</div>

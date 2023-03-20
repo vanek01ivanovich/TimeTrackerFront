@@ -7,6 +7,7 @@ export const environment = {
   defaultLocale: 'en',
   production: false,
   apiUrl: 'http://localhost:8080/api/',
+  url: 'http://localhost:8080/',
   socketUrl: 'http://localhost:8080/ws'
 };
 

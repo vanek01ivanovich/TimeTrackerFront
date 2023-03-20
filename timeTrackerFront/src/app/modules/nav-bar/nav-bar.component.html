@@ -1,0 +1,51 @@
+
+<body ><div class="area"></div><nav class="main-menu">
+  <ul>
+    <li>
+      <a [routerLink]="'/my-profile'">
+        <i class="fa fa-home fa-2x"></i>
+        <span class="nav-text">
+                           My Profile
+                        </span>
+      </a>
+
+    </li>
+    <li class="has-subnav">
+      <a [routerLink]="'/users'">
+        <i class="fa fa-globe fa-2x"></i>
+        <span class="nav-text">
+                            Users
+                        </span>
+      </a>
+
+    </li>
+    <li class="has-subnav">
+      <a [routerLink]="'/project'">
+        <i class="fa fa-comments fa-2x"></i>
+        <span class="nav-text">
+                            Projects
+                        </span>
+      </a>
+
+    </li>
+    <li class="has-subnav">
+      <a [routerLink]="'/my-tasks'">
+        <i class="fa fa-camera-retro fa-2x"></i>
+        <span class="nav-text">
+                            My Tasks
+                        </span>
+      </a>
+  </ul>
+
+  <ul class="logout">
+    <li>
+      <a>
+        <i class="fa fa-power-off fa-2x"></i>
+        <span class="nav-text" (click)="logout()">
+                            Logout
+                        </span>
+      </a>
+    </li>
+  </ul>
+</nav>
+</body>

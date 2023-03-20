@@ -33,10 +33,10 @@ export class AuthenticationService {
       password: this.passwordHashing(password, this.PASSWORD_HASHING_ITERATIONS_AMOUNT)
     };
     console.log("userInfo ", userInfo)
-    return this.http.post<User>(this.url + 'log-in', JSON.stringify(userInfo), this.httpOptions).pipe(
+    return this.http.post<User>(this.url + 'login', JSON.stringify(userInfo), this.httpOptions).pipe(
       userData => {
+        console.log("userData ", userData);
         const tokenJSON: any = userData;
-        sessionStorage.setItem('username', username);
         let tokenStr = 'Bearer ' + tokenJSON.token;
         sessionStorage.setItem('token', tokenStr);
         return userData;
@@ -44,6 +44,29 @@ export class AuthenticationService {
     );
   }
 
+  signup(username: string, password: string, lastName: string, firstName: string, email: string ){
+    console.log("signup ", username, password, lastName, firstName, email);
+    const userInfo = {
+      username,
+      email,
+      firstName,
+      lastName,
+      password: this.passwordHashing(password, this.PASSWORD_HASHING_ITERATIONS_AMOUNT)
+    };
+    console.log("signup userInfo ", userInfo)
+    return this.http.post(this.url + 'signup',  JSON.stringify(userInfo), this.httpOptions).pipe(
+      res => {
+        console.log(res);
+        return res;
+    }
+    );
+  }
+
+  signoutUser(): void {
+    sessionStorage.removeItem('username');
+    sessionStorage.removeItem("role");
+    sessionStorage.removeItem("userDate");
+  }
 
   passwordHashing(password: string, iterations?: number) {
     let crypt = sha1(password);
